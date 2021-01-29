@@ -13,14 +13,14 @@ Loop through file
 
 '''
 
-def count_words(filename):
+def count_words(filename): 
 
     text_file = open(filename)
 
     dict_of_words = {}
 
     for line in text_file:
-        new_line = line.rstrip().split(" ")
+        new_line = line.lower().replace(',', '').replace('.', '').replace('?', '').rstrip().split(" ")
 
         for word in new_line:
             if word not in dict_of_words:
@@ -31,6 +31,4 @@ def count_words(filename):
     for word, number in dict_of_words.items():
         print(f'{word}:{number}')
 
-
-#print(count_words('test.txt'))
 print(count_words('twain.txt'))
